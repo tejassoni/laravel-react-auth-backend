@@ -1,5 +1,5 @@
 # Overview
-Laravel Sanctum <a href="https://laravel.com/docs/master/sanctum#main-content" target="_blank">Sanctum</a> Laravel Basic authorization process for user API registration and login with validations and response token.</a>
+Laravel <a href="https://laravel.com/docs/master/sanctum#main-content" target="_blank">Sanctum</a> Laravel Basic authorization process for user API registration and login with validations and response token.</a>
 
 Server Requirements
 =====================================
