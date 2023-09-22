@@ -25,4 +25,6 @@ Route::post('/register',[\App\Http\Controllers\Api\AuthController::class,'regist
 // protected routes with sanctum
 Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::post('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout']);
+    Route::get("/refresh", [\App\Http\Controllers\Api\AuthController::class, 'refresh']);
+    Route::get("/profile", [\App\Http\Controllers\Api\AuthController::class, 'profile']);
 });

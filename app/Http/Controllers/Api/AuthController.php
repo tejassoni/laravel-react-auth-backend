@@ -41,4 +41,16 @@ class AuthController extends Controller
         auth()->user()->currentAccessToken()->delete();
         return $this->success("","User logout successfully...!",200);
     }
+
+    public function profile(Request $request)
+    {      
+        return $this->success(['user' => $request->user()],'User Detail get successfully...!');
+    }
+
+    public function refresh(Request $request)
+    {
+        $user = $request->user();
+        $user->tokens()->delete();
+        return $this->success(['token' => $user->createToken('API Token of '.auth()->user()->name)->plainTextToken],'Token refresh successfully...!');
+    }
 }
