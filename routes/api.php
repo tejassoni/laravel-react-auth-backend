@@ -27,4 +27,6 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
     Route::post('/logout',[\App\Http\Controllers\Api\AuthController::class,'logout']);
     Route::get("/refresh", [\App\Http\Controllers\Api\AuthController::class, 'refresh']);
     Route::get("/profile", [\App\Http\Controllers\Api\AuthController::class, 'profile']);
+    // Update Existing User password basis on Old Password and New Password
+    Route::post('/change-password',[\App\Http\Controllers\Api\AuthController::class,'updatePassword']);
 });
