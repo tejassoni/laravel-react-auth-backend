@@ -30,3 +30,8 @@ Route::group(['middleware' => ['auth:sanctum']],function () {
     // Update Existing User password basis on Old Password and New Password
     Route::post('/change-password',[\App\Http\Controllers\Api\AuthController::class,'updatePassword']);
 });
+
+// forgot password with token with expired using laravel default reset password table
+Route::post('/forget-password', [\App\Http\Controllers\Api\ForgotPasswordController::class, 'submitForgetPassword']);
+Route::get("/password/reset/{token?}/{email?}", [\App\Http\Controllers\Api\ForgotPasswordController::class, 'verifyToken']);
+Route::post('/update-password', [\App\Http\Controllers\Api\ForgotPasswordController::class, 'updatePasswordByToken']);

@@ -15,6 +15,9 @@ class AuthController extends Controller
 {
     use HttpResponses;
 
+    /*
+    * login via email address and password 
+    */
     public function login(LoginUserRequest $request)
     {
         $request->validated($request->all());
@@ -24,6 +27,9 @@ class AuthController extends Controller
         return $this->success(['user' => auth()->user(), 'token' => auth()->user()->createToken('API Token of ' . auth()->user()->name)->plainTextToken]);
     }
 
+    /*
+    * register new user via name, email address and password 
+    */
     public function register(StoreUserRequest $request)
     {
         $request->validated($request->all());
@@ -38,17 +44,26 @@ class AuthController extends Controller
         ], "User created Successfully...!");
     }
 
+    /*
+    * logout existing logged in user
+    */
     public function logout()
     {
         auth()->user()->currentAccessToken()->delete();
         return $this->success("", "User logout successfully...!", 200);
     }
 
+    /*
+    * Get existing loggedin user full details
+    */
     public function profile(Request $request)
     {
         return $this->success(['user' => $request->user()], 'User Detail get successfully...!');
     }
 
+    /*
+    * Refresh token on basis of old token verification and generate new token
+    */
     public function refresh(Request $request)
     {
         $user = $request->user();
@@ -70,5 +85,5 @@ class AuthController extends Controller
             'password' => Hash::make($request->new_password)
         ])->save();            
         return $this->success([], 'Password changed successfully...!');
-    }
+    }  
 }

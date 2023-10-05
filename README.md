@@ -23,6 +23,19 @@ Server Requirements
   <li>Password : [ Validation Rules : Strong Password, Required ]</li>
   <li><b>Logout api : http://127.0.0.1:8000/api/logout </b></li>
   <li>For logout pass current logedIn token as Header Bearer</li> 
+  <li><b>Refresh api : http://127.0.0.1:8000/api/refresh </b></li>
+  <li>Refresh token on basis of old token verification and generate new token as Header Bearer</li> 
+   <li><b>Profile api : http://127.0.0.1:8000/api/profile </b></li>
+  <li>Get existing loggedin user full details as Header Bearer</li> 
+   <li><b>Change Password api : http://127.0.0.1:8000/api/change-password </b></li>
+  <li>UpdatePassword on basis of Old password, new Password and new password confirmation as Header Bearer</li> 
+   <li><b>Update Password with Token : 3 Steps apis </b></li>
+   <li>Forget Password api : http://127.0.0.1:8000/api/forget-password</li> 
+   <li>send email to change Password token</li> 
+   <li>Verify Token api : http://127.0.0.1:8000/api/password/reset/{token?}/{email?}</li> 
+   <li>token Verification</li>
+   <li>Update Password By Token api : http://127.0.0.1:8000/api/update-password</li> 
+   <li>updatePasswordByToken on basis of Token and Password</li>
 </ul>
 
 # Laravel / PHP Coding Standards
